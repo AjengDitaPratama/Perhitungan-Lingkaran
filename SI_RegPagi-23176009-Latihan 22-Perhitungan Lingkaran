@@ -1,0 +1,56 @@
+/*
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Main.java to edit this template
+ */
+package perhitunganlingkaran;
+
+/**
+ *
+ * @author LENOVO
+ * Nama : Ajeng Dita Pratama
+ * Kelas : Sistem Informasi
+ * NIM : 23176009
+ * Deskripsi program : Program ini berisi program untuk menampilkan
+ * perhitungan lingkaran
+ */
+import java.util.Scanner;
+public class PerhitunganLingkaran {
+    
+    public static void main(String[] args) {
+        Scanner input = new Scanner(System.in);
+        double diameter = 0;
+        boolean valid = false;
+
+        System.out.println("=======Perhitungan Lingkaran=======");
+        
+        // Loop untuk meminta input sampai valid
+        while (!valid) {
+            System.out.print("Masukkan nilai diameter lingkaran: ");
+            if (input.hasNextDouble()) {
+                diameter = input.nextDouble();
+                if (diameter > 0) {
+                    valid = true; // Input valid, keluar dari loop
+                } else {
+                    System.out.println("Nilai Diameter Tidak Sesuai");
+                    input.nextLine(); // Membersihkan input
+                }
+            } else {
+                System.out.println("Nilai Diameter Tidak Sesuai");
+                input.nextLine(); // Membersihkan input jika input tidak valid
+            }
+        }
+
+        // Menghitung jari-jari, luas, dan keliling
+        double jariJari = diameter / 2;
+        double luas = Math.PI * jariJari * jariJari;
+        double keliling = 2 * Math.PI * jariJari;
+
+        // Menampilkan hasil perhitungan
+        System.out.println("=======Hasil Perhitungan Lingkaran=======");
+        System.out.printf("Jari-jari Lingkaran = %.2f cm%n", jariJari);
+        System.out.printf("Luas Lingkaran = %.2f cm%n", luas);
+        System.out.printf("Keliling Lingkaran = %.2f cm%n", keliling);
+
+        input.close();
+    }
+}
